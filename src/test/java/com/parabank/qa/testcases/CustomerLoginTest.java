@@ -11,7 +11,7 @@ import com.parabank.qa.util.TestUtil;
 
 public class CustomerLoginTest extends TestBase{
 	TestUtil testUtil;
-	CustomerLogin CLogin =new CustomerLogin();
+	CustomerLogin CLogin;
 	
 	public CustomerLoginTest() {
 		super();
@@ -20,6 +20,12 @@ public class CustomerLoginTest extends TestBase{
 	@BeforeMethod
 	public void setUp() {
 		initialization();
+		CLogin = new CustomerLogin();
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
 	}
 	
 	@Test(priority = 1)
@@ -28,18 +34,36 @@ public class CustomerLoginTest extends TestBase{
 		Assert.assertEquals(title, "ParaBank | Welcome | Online Banking");
 	}
 	
-	@Test (priority = 2)
+	@Test 
 	public void LoginTest() {
 		CLogin.Login(prop.getProperty("username"), prop.getProperty("password"));
 		CLogin.LoginButton();
 		String ActualTitle = driver.getTitle();
 		Assert.assertEquals(ActualTitle, "ParaBank | Accounts Overview");
-
 	}
 	
 	
-	@AfterMethod
-	public void tearDown() {
-		driver.close();
+	@Test
+	public void ForgotInfoLinkTest() {
+		CLogin.validateForgotLoginInfoLink();
+		String actualtitle = driver.getTitle();
+		Assert.assertEquals(actualtitle, "ParaBank | Customer Lookup");
 	}
+	
+	@Test
+	public void RegisterLinkTest() {
+		CLogin.validateRegisterlink();
+		String actualtitle = driver.getTitle();
+		Assert.assertEquals(actualtitle, "ParaBank | Register for Free Online Account Access");
+		}
+	
+	@Test
+	public void emptyFieldsTextTest() {
+		CLogin.Login("", prop.getProperty("password"));
+		CLogin.LoginButton();
+		String actualmsg = CLogin.emptyFieldsText();
+		Assert.assertTrue(actualmsg.contains("Please enter a username and password"));
+	}
+	
+	
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PARA BANK Application Test Automation Test Suite">
+
+	
+	<test name="PARA BANK App Test Cases">
+		<classes>
+			<class name="com.parabank.qa.testcases.RegistrationTest"></class>
+			<class name="com.parabank.qa.testcases.CustomerLoginTest"></class>
+			<class name="com.parabank.qa.testcases.ForgotLoginInfoTest"></class>
+			<class name="com.parabank.qa.testcases.AccountsOverviewTest"></class>
+			<class name="com.parabank.qa.testcases.OpenNewaccountTest"></class>
+			<class name="com.parabank.qa.testcases.TransferFundsTest"></class>
+			<class name="com.parabank.qa.testcases.BillPayTest"></class>
+			<class name="com.parabank.qa.testcases.FindTransactionsTest"></class>
+			<class name="com.parabank.qa.testcases.UpdateContactInfoTest"></class>
+			<class name="com.parabank.qa.testcases.RequestLoanTest"></class>
+			<class name="com.parabank.qa.testcases.LogOutTest"></class>
+		</classes>
+	</test>
+</suite>

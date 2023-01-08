@@ -10,10 +10,10 @@ public class CustomerLogin extends TestBase{
 
 	@FindBy(name = "username") WebElement Username;
 	@FindBy(name = "password") WebElement Password;
-	@FindBy(xpath = "[@id=\"rightPanel\"]") WebElement Emptyfields;
-	@FindBy(xpath = "input[@type='submit'and @value='Log In']") WebElement LoginBtn;
-	@FindBy(xpath = "[contains(text(),'lookup.htm')]") WebElement FLInfoLink;
-	@FindBy(xpath = "[contains(text(), 'Register')]") WebElement RegLink;
+	@FindBy(xpath = "//*[@id=\"rightPanel\"]") WebElement Emptyfields;
+	@FindBy(xpath = "//input[@type='submit'and @value='Log In']") WebElement LoginBtn;
+	@FindBy(css = "#loginPanel > p:nth-child(2) > a") WebElement FLInfoLink;
+	@FindBy(xpath = "//a[contains(text(), 'Register')]") WebElement RegLink;
 	
 	public CustomerLogin() {
 		PageFactory.initElements(driver, this);}

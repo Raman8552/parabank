@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+
 import com.parabank.qa.util.TestUtil;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,6 +20,8 @@ public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
+	
+	
 	
 	public TestBase() {
 		try {
@@ -39,6 +43,8 @@ public class TestBase {
 				WebDriverManager.chromedriver().setup();
 				driver=new ChromeDriver();
 	}
+		
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
